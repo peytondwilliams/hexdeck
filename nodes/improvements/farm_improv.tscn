@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://oxqvd8d2qt1x"]
+
+[ext_resource type="PackedScene" uid="uid://wtmtv56qn6m5" path="res://nodes/core/improvement.tscn" id="1_42coo"]
+[ext_resource type="Script" path="res://nodes/improvements/Farm_improv.gd" id="2_0pb7p"]
+[ext_resource type="Texture2D" uid="uid://yl2dgqyhbvcg" path="res://assets/visual/mystics_rpg_icon_pack/Other_16.png" id="3_0s4mt"]
+
+[node name="Farm_improv" instance=ExtResource("1_42coo")]
+script = ExtResource("2_0pb7p")
+stats = {
+"food": 2,
+"gold": 0,
+"labor": 0,
+"material": 0,
+"science": 0
+}
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_0s4mt")

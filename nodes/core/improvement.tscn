@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wtmtv56qn6m5"]
+
+[ext_resource type="Script" path="res://nodes/core/improvement.gd" id="1_xqrl4"]
+
+[node name="Improvement" type="Node2D"]
+script = ExtResource("1_xqrl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
