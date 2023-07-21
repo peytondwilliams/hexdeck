@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://c43ld7bem4vbq"]
+
+[ext_resource type="Texture2D" uid="uid://hcf8x5cocsc8" path="res://assets/visual/card.png" id="1_kph5y"]
+[ext_resource type="Texture2D" uid="uid://dlm2s8stq1jto" path="res://assets/visual/mystics_rpg_icon_pack/Other_12.png" id="2_2y37n"]
+
+[node name="Card" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_kph5y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1, -61)
+scale = Vector2(4, 4)
+texture = ExtResource("2_2y37n")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -64.0
+offset_top = -128.0
+offset_right = 63.0
+offset_bottom = 128.0
+
+[node name="Name" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 118.0
+offset_right = 121.0
+offset_bottom = 144.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Farm"
+horizontal_alignment = 1
+
+[node name="BaseStat" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 139.0
+offset_right = 87.0
+offset_bottom = 159.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Food: +2
+"
+
+[node name="Placement" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = 154.0
+offset_right = 101.0
+offset_bottom = 174.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requires: Grassland"
+
+[node name="Effect" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = 176.0
+offset_right = 140.0
+offset_bottom = 274.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "+0.25 food for each adjacent farm"
+autowrap_mode = 2
