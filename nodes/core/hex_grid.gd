@@ -52,7 +52,7 @@ func generate_map():
 			curr_coords += DIRECTION_ARR[3]
 			
 
-func calc_turn():
+func calculate():
 	var stats : Dictionary = {
 		"food": 0,
 		"material": 0,

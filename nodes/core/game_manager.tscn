@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://dggg7rt0rge4l"]
+[gd_scene load_steps=3 format=3 uid="uid://dggg7rt0rge4l"]
 
-[ext_resource type="PackedScene" uid="uid://b8fs7s3fmgrge" path="res://nodes/core/ui.tscn" id="1_2ml7l"]
 [ext_resource type="Script" path="res://nodes/core/game_manager.gd" id="1_buvqq"]
 [ext_resource type="PackedScene" uid="uid://dgrs0552kqbw4" path="res://nodes/core/hex_grid.tscn" id="2_fmrg8"]
 
@@ -9,7 +8,62 @@ script = ExtResource("1_buvqq")
 
 [node name="HexGrid" parent="." instance=ExtResource("2_fmrg8")]
 
-[node name="UI" parent="." instance=ExtResource("1_2ml7l")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="EndTurnButton" type="Button" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -40.5
+offset_bottom = 40.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "End Turn"
+metadata/_edit_use_anchors_ = true
+
+[node name="StatsLabel" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 92.0
+offset_bottom = 161.0
+text = "Resources:
+Food: 0
+Material: 0
+Labor: 0
+Science: 0
+Gold: 0"
+metadata/_edit_use_anchors_ = true
+
+[node name="StatsPTLabel" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 4.0
+offset_right = 201.0
+offset_bottom = 160.0
+text = "Per turn:
++0
++0
++0
++0
++0"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="UI/Control/EndTurnButton" to="." method="_on_end_turn_button_pressed"]

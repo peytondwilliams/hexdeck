@@ -9,7 +9,7 @@ extends Improvement
 }
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	id = "farm"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,10 +19,11 @@ func _process(delta):
 func calculate():
 	var calc_stats = stats.duplicate(true)
 	
-	for neighbor in Global.neighbors(Global.generate_hex_key(coords)):
-		var n_improv = neighbor.improvement
+	for neighbor_str in Global.neighbors(Global.generate_hex_key(coords)):
+		var n_improv = Global.grid[neighbor_str].improvement
+
 		if n_improv and n_improv.id == "farm":
 			calc_stats["food"] += 0.25
 			
-	return stats
+	return calc_stats
 	

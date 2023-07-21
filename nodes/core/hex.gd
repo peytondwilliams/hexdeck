@@ -38,4 +38,6 @@ func add_improv(new_improv):
 
 func calculate():
 	if improvement:
-		improvement.calculate()
+		return improvement.calculate()
+	else:
+		return {}
