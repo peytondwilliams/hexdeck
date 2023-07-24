@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c43ld7bem4vbq"]
+[gd_scene load_steps=5 format=3 uid="uid://c43ld7bem4vbq"]
 
+[ext_resource type="Script" path="res://nodes/core/card.gd" id="1_cyjoc"]
 [ext_resource type="Texture2D" uid="uid://hcf8x5cocsc8" path="res://assets/visual/card.png" id="1_kph5y"]
 [ext_resource type="Texture2D" uid="uid://dlm2s8stq1jto" path="res://assets/visual/mystics_rpg_icon_pack/Other_12.png" id="2_2y37n"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kyt2"]
+size = Vector2(169, 241)
+
 [node name="Card" type="Node2D"]
+script = ExtResource("1_cyjoc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -63,3 +68,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "+0.25 food for each adjacent farm"
 autowrap_mode = 2
+
+[node name="Area2D" type="Area2D" parent="." groups=["card"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_7kyt2")

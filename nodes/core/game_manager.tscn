@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dggg7rt0rge4l"]
+[gd_scene load_steps=4 format=3 uid="uid://dggg7rt0rge4l"]
 
 [ext_resource type="Script" path="res://nodes/core/game_manager.gd" id="1_buvqq"]
 [ext_resource type="PackedScene" uid="uid://dgrs0552kqbw4" path="res://nodes/core/hex_grid.tscn" id="2_fmrg8"]
+[ext_resource type="PackedScene" uid="uid://dyi6467smul80" path="res://nodes/core/card_hand.tscn" id="3_dycs4"]
 
-[node name="GameManager" type="Node"]
+[node name="GameManager" type="Node2D"]
 script = ExtResource("1_buvqq")
 
 [node name="HexGrid" parent="." instance=ExtResource("2_fmrg8")]
+
+[node name="CardHand" parent="." instance=ExtResource("3_dycs4")]
+position = Vector2(-3, 117)
+scale = Vector2(0.4, 0.4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

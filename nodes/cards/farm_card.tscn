@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp5orw3p1ilbq"]
+
+[ext_resource type="PackedScene" uid="uid://c43ld7bem4vbq" path="res://nodes/core/card.tscn" id="1_gpv0x"]
+[ext_resource type="Script" path="res://nodes/cards/farm_card.gd" id="2_7d4yy"]
+
+[node name="farm_card" instance=ExtResource("1_gpv0x")]
+script = ExtResource("2_7d4yy")

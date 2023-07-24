@@ -41,7 +41,7 @@ func generate_map():
 			hex.coords = curr_coords
 			hex.position = Global.cube_to_real_coords(curr_coords)
 			
-			hex.add_improv(farms.instantiate())
+			#hex.add_improv(farms.instantiate())
 
 			hex_grid[Global.generate_hex_key(curr_coords)] = hex
 

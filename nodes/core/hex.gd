@@ -34,6 +34,7 @@ func add_improv(new_improv):
 		improvement.queue_free()
 	improvement = new_improv
 	add_child(improvement)
+	improvement.position = Vector2.ZERO
 	improvement.init(coords)
 
 func calculate():
