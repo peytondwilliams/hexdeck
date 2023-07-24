@@ -6,13 +6,8 @@
 
 [node name="Farm_improv" instance=ExtResource("1_42coo")]
 script = ExtResource("2_0pb7p")
-stats = {
-"food": 2,
-"gold": 0,
-"labor": 0,
-"material": 0,
-"science": 0
-}
+stats = null
+id = null
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_0s4mt")

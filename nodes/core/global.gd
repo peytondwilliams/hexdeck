@@ -28,7 +28,6 @@ var grid : Dictionary = {}
 var relics : Dictionary = {}
 var deck : Array = []
 
-
 var turn : int = 1
 
 

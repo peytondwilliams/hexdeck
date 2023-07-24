@@ -27,6 +27,6 @@ func calculate():
 			
 	return calc_stats
 	
-func is_valid_coords(check_coords: Vector3i):
-	return Global.grid[Global.generate_hex_key(check_coords)].biome == "grassland"
+func is_valid_coords(check_coords: String):
+	return Global.grid[check_coords].biome == "grassland"
 	

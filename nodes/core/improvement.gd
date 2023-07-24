@@ -23,5 +23,5 @@ func init(new_coords: Vector3i):
 func calculate():
 	pass
 
-func is_valid_coords(place_coords: Vector3i):
+func is_valid_coords(check_coords: String):
 	pass

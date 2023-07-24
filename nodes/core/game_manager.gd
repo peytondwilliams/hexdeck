@@ -20,40 +20,41 @@ func _process(delta):
 func _physics_process(delta):
 	if Input.is_action_pressed("action_click"):
 		if not hold_improv:
-			var space_state = get_world_2d().direct_space_state
-			var query = PhysicsPointQueryParameters2D.new()
-			query.position = get_global_mouse_position()
-			query.collide_with_areas = true
-			query.collide_with_bodies = false
-			var result = space_state.intersect_point(query)
-			
-			for collider in result:
-				if collider.collider.is_in_group("card"):
-					hold_card = collider.collider.get_parent()
-					hold_improv = hold_card.improv_pre.instantiate()
-					add_child(hold_improv)
-					
-					hold_improv.position = gb.cube_to_real_coords(gb.real_to_cube_coords(get_global_mouse_position()))
-					break
-				
-			
+			find_click_card()
 		else:
 			hold_improv.position = gb.cube_to_real_coords(gb.real_to_cube_coords(get_global_mouse_position()))
 		
 	elif Input.is_action_just_released("action_click"):
 		if hold_improv:
 			place_improv()
-			$CardHand.remove_card(hold_card)
 			hold_improv = null
 			hold_card = null
-		
+
+func find_click_card():
+	var space_state = get_world_2d().direct_space_state
+	var query = PhysicsPointQueryParameters2D.new()
+	query.position = get_global_mouse_position()
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	var result = space_state.intersect_point(query)
+	
+	for collider in result:
+		if collider.collider.is_in_group("card"):
+			hold_card = collider.collider.get_parent()
+			hold_improv = hold_card.improv_pre.instantiate()
+			add_child(hold_improv)
+			
+			hold_improv.position = gb.cube_to_real_coords(gb.real_to_cube_coords(get_global_mouse_position()))
+			break
 
 func place_improv():
 	var place_loc = gb.generate_hex_key(gb.real_to_cube_coords(get_global_mouse_position()))
 	print(place_loc)
 	if gb.grid.has(place_loc) and gb.grid[place_loc].improvement == null:
-		remove_child(hold_improv)
-		gb.grid[place_loc].add_improv(hold_improv) 
+		if hold_improv.is_valid_coords(place_loc):
+			remove_child(hold_improv)
+			gb.grid[place_loc].add_improv(hold_improv) 
+			$CardHand.remove_card(hold_card)
 	else:
 		hold_improv.queue_free()
 
@@ -93,3 +94,4 @@ func calc_turn():
 
 func _on_end_turn_button_pressed():
 	calc_turn()
+	$CardHand.draw_hand()
