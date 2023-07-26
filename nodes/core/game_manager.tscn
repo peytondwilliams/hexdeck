@@ -9,12 +9,12 @@ script = ExtResource("1_buvqq")
 
 [node name="HexGrid" parent="." instance=ExtResource("2_fmrg8")]
 
-[node name="CardHand" parent="." instance=ExtResource("3_dycs4")]
-position = Vector2(-3, 117)
-scale = Vector2(0.4, 0.4)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="CardHand" parent="Camera2D" instance=ExtResource("3_dycs4")]
+position = Vector2(-3, 117)
+scale = Vector2(0.4, 0.4)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -43,6 +43,19 @@ theme_override_font_sizes/font_size = 32
 text = "End Turn"
 metadata/_edit_use_anchors_ = true
 
+[node name="BuyCardButton" type="Button" parent="UI/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.5
+offset_right = 188.0
+offset_bottom = 40.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Buy Card"
+metadata/_edit_use_anchors_ = true
+
 [node name="StatsLabel" type="Label" parent="UI/Control"]
 layout_mode = 0
 offset_left = 5.0
@@ -63,7 +76,7 @@ offset_left = 132.0
 offset_top = 4.0
 offset_right = 201.0
 offset_bottom = 160.0
-text = "Per turn:
+text = "Last turn:
 +0
 +0
 +0
@@ -72,3 +85,4 @@ text = "Per turn:
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="UI/Control/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
+[connection signal="pressed" from="UI/Control/BuyCardButton" to="." method="_on_buy_card_button_pressed"]

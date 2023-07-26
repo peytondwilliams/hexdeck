@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://do2gu3nc0685n"]
+
+[ext_resource type="PackedScene" uid="uid://dlxsw3x4hgrwv" path="res://nodes/core/relic.tscn" id="1_xg5vr"]
+[ext_resource type="Script" path="res://nodes/relics/strawberry_relic.gd" id="2_p77rk"]
+
+[node name="strawberry_relic" instance=ExtResource("1_xg5vr")]
+script = ExtResource("2_p77rk")

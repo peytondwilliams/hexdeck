@@ -20,8 +20,7 @@ func add_card(card_name):
 	add_child(card)
 	cards.append(card)
 	organize_hand()
-	
-	
+		
 func organize_hand():
 	var start_pos = Vector2.ZERO - Vector2(90, 0) * (cards.size() - 1)
 	
@@ -29,9 +28,10 @@ func organize_hand():
 		var card = cards[i]
 		card.position = start_pos + Vector2(180, 0) * i
 	
-func remove_card(card: Node2D):
+func play_card(card: Node2D):
 	for i in range(0, cards.size()):
 		if cards[i] == card:
+			charge_card_cost(card)
 			cards.remove_at(i)
 			discard_pile.append(card)
 			remove_child(card)
@@ -66,6 +66,17 @@ func reset_draw_pile():
 
 	draw_pile.shuffle()
 	discard_pile = []
+	
+func can_play_card(card):
+	for key in gb.resources.keys():
+		if gb.resources[key] < card.cost[key]:
+			return false
+
+	return true
+	
+func charge_card_cost(card):
+	for key in gb.resources.keys():
+		gb.resources[key] -= card.cost[key]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

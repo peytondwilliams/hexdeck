@@ -1,5 +1,12 @@
 extends Node2D
 
+@export var cost : Dictionary = {
+	"food": 0,
+	"material": 0,
+	"labor": 0,
+	"science": 0,
+	"gold": 0
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

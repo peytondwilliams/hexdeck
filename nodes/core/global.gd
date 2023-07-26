@@ -8,7 +8,10 @@ const DIRECTION_ARR : Array = [
 					Vector3i(-1, +1, 0), #bot left
 					Vector3i(0, +1, -1) #bot right
 					]
+					
 const COORD_SCALE_FACTOR = 16
+
+enum TRIG {START_TURN, END_TURN, PRE_TAX, PLAY_CARD, DRAW_CARD} #etc
 
 var resources : Dictionary = {
 	"food": 0,
@@ -25,7 +28,15 @@ var resources_pt : Dictionary = {
 	"gold": 0
 }
 var grid : Dictionary = {}
-var relics : Dictionary = {}
+
+var relics : Dictionary = {
+	"START_TURN" : [],
+	"END_TURN" : [],
+	"PRE_TAX" : [],
+	"PLAY_CARD" : [],
+	"DRAW_CARD" : []
+}
+
 var deck : Array = []
 
 var turn : int = 1
