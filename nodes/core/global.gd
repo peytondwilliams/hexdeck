@@ -16,7 +16,7 @@ enum TRIG {START_TURN, END_TURN, PRE_TAX, PLAY_CARD, DRAW_CARD} #etc
 var resources : Dictionary = {
 	"food": 0,
 	"material": 0,
-	"labor": 0,
+	"labor": 10,
 	"science": 0,
 	"gold": 0
 }

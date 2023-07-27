@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://t55utm83r8jr"]
+
+[ext_resource type="Script" path="res://nodes/core/card_shop.gd" id="1_6t5fl"]
+
+[node name="CardShop" type="Node2D"]
+script = ExtResource("1_6t5fl")

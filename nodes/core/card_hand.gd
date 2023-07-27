@@ -1,5 +1,7 @@
 extends Node2D
 
+signal card_click(card)
+
 @onready var gb = Global
 
 @onready var farm_card = preload("res://nodes/cards/farm_card.tscn")
@@ -42,7 +44,9 @@ func play_card(card: Node2D):
 func clear_hand():
 	for i in range(cards.size() - 1, -1, -1):
 		discard_pile.append(cards[i])
+		cards[i].click.disconnect(_on_card_click)
 		remove_child(cards[i])
+	
 	cards = []
 		
 func draw_hand():
@@ -52,12 +56,18 @@ func draw_hand():
 		if draw_pile.is_empty():
 			reset_draw_pile()
 		
-		var card = draw_pile.pop_back()
-		cards.append(card)
-		add_child(card)
+		draw_card()
 	
 	organize_hand()
 	
+func draw_card():
+	var card = draw_pile.pop_back()
+	cards.append(card)
+	add_child(card)
+	card.click.connect(_on_card_click)
+	
+	organize_hand()
+
 func reset_draw_pile():
 	draw_pile = gb.deck.duplicate()
 	for i in range(draw_pile.size() - 1, -1, -1):
@@ -81,3 +91,7 @@ func charge_card_cost(card):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func _on_card_click(card):
+	card_click.emit(card)	
+

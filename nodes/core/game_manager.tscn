@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dggg7rt0rge4l"]
+[gd_scene load_steps=5 format=3 uid="uid://dggg7rt0rge4l"]
 
 [ext_resource type="Script" path="res://nodes/core/game_manager.gd" id="1_buvqq"]
 [ext_resource type="PackedScene" uid="uid://dgrs0552kqbw4" path="res://nodes/core/hex_grid.tscn" id="2_fmrg8"]
 [ext_resource type="PackedScene" uid="uid://dyi6467smul80" path="res://nodes/core/card_hand.tscn" id="3_dycs4"]
+[ext_resource type="PackedScene" uid="uid://t55utm83r8jr" path="res://nodes/core/card_shop.tscn" id="3_q1san"]
 
 [node name="GameManager" type="Node2D"]
 script = ExtResource("1_buvqq")
@@ -13,8 +14,11 @@ script = ExtResource("1_buvqq")
 zoom = Vector2(3, 3)
 
 [node name="CardHand" parent="Camera2D" instance=ExtResource("3_dycs4")]
-position = Vector2(-3, 117)
+position = Vector2(0, 117)
 scale = Vector2(0.4, 0.4)
+
+[node name="CardShop" parent="Camera2D" instance=ExtResource("3_q1san")]
+scale = Vector2(0.8, 0.8)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -84,5 +88,6 @@ text = "Last turn:
 +0"
 metadata/_edit_use_anchors_ = true
 
+[connection signal="card_click" from="Camera2D/CardHand" to="." method="_on_card_hand_card_click"]
 [connection signal="pressed" from="UI/Control/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
 [connection signal="pressed" from="UI/Control/BuyCardButton" to="." method="_on_buy_card_button_pressed"]

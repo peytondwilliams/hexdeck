@@ -6,6 +6,7 @@ extends Node2D
 @onready var stats_pt_label : Label = $UI/Control/StatsPTLabel
 
 @onready var card_hand : Node2D = $Camera2D/CardHand
+@onready var card_shop : Node2D = $Camera2D/CardShop
 
 var hold_improv = null
 var hold_card = null
@@ -26,14 +27,9 @@ func _process(delta):
 	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("action_click"):
-		if not hold_improv:
-			find_click_card()
-			if not hold_improv and not tried_click_card:
-				dragging = true
-				prev_mouse_pos = get_global_mouse_position()
-			
-		else:
-			pass
+		if not hold_improv and not tried_click_card:
+			dragging = true
+			prev_mouse_pos = get_global_mouse_position()
 			
 	if Input.is_action_pressed("action_click"):
 		if hold_improv:
@@ -53,25 +49,6 @@ func _physics_process(delta):
 			dragging = false
 			
 	tried_click_card = false
-
-func find_click_card():
-	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsPointQueryParameters2D.new()
-	query.position = get_global_mouse_position()
-	query.collide_with_areas = true
-	query.collide_with_bodies = false
-	var result = space_state.intersect_point(query)
-	
-	for collider in result:
-		if collider.collider.is_in_group("card"):
-			tried_click_card = true
-			if card_hand.can_play_card(collider.collider.get_parent()):
-				hold_card = collider.collider.get_parent()
-				hold_improv = hold_card.improv_pre.instantiate()
-				add_child(hold_improv)
-				
-				hold_improv.position = gb.cube_to_real_coords(gb.real_to_cube_coords(get_global_mouse_position()))
-			break
 
 func place_improv():
 	var place_loc = gb.generate_hex_key(gb.real_to_cube_coords(get_global_mouse_position()))
@@ -133,4 +110,17 @@ func _on_end_turn_button_pressed():
 
 
 func _on_buy_card_button_pressed():
-	pass # Replace with function body.
+	card_shop.draw_shop()
+	card_shop.visible = true
+
+
+func _on_card_hand_card_click(card):
+	tried_click_card = true
+		
+	if card_hand.can_play_card(card):
+		hold_card = card
+		hold_improv = card.improv_pre.instantiate()
+		add_child(hold_improv)
+		
+		hold_improv.position = gb.cube_to_real_coords(gb.real_to_cube_coords(get_global_mouse_position()))
+	
