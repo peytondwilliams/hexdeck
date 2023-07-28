@@ -20,6 +20,7 @@ const DIRECTION_ARR = [
 					
 const COORD_SCALE_FACTOR = 16
 const CHUNK_SIZE_FACTOR = 16
+const BOARD_SIZE_DIM = 20
 
 @onready var hex_grid : Dictionary = Global.grid
 
@@ -52,16 +53,14 @@ func _process(delta):
 func generate_map():
 	var curr_coords : Vector3i = Vector3i.ZERO
 
-	var scale_moist = 20
+	var scale_moist = 10
 	var scale_alt = 50
 	var scale_temp = 30
 
-	for i in range(10):
-		for j in range(10):
+	for i in range(BOARD_SIZE_DIM):
+		for j in range(BOARD_SIZE_DIM):
 			
-			var init_coord = Vector2(i, j)
-			var cube_coord = gb.real_to_cube_coords(COORD_SCALE_FACTOR * init_coord)
-			var coord = gb.cube_to_real_coords(cube_coord) / COORD_SCALE_FACTOR
+			var coord = gb.cube_to_real_coords(curr_coords) / COORD_SCALE_FACTOR
 			print(coord)
 			
 			var moist = moisture.get_noise_2d(coord.x * scale_moist, coord.y * scale_moist)
@@ -90,7 +89,7 @@ func generate_map():
 			hex_grid[Global.generate_hex_key(curr_coords)] = hex
 
 			curr_coords += DIRECTION_ARR[0]
-		curr_coords += (DIRECTION_ARR[3] * 10)
+		curr_coords += (DIRECTION_ARR[3] * BOARD_SIZE_DIM)
 		curr_coords += DIRECTION_ARR[5]
 		if (i % 2 == 1):
 			curr_coords += DIRECTION_ARR[3]
