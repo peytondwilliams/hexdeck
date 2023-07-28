@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0nyljas316do"]
+
+[ext_resource type="PackedScene" uid="uid://tifeuibhp472" path="res://nodes/core/hex.tscn" id="1_r3vgf"]
+[ext_resource type="Script" path="res://nodes/tiles/water_hex.gd" id="2_y30ks"]
+
+[node name="WaterHex" instance=ExtResource("1_r3vgf")]
+script = ExtResource("2_y30ks")
+biome = "water"
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.168627, 0.458824, 0.65098, 1)

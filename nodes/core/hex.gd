@@ -10,7 +10,7 @@ const DIRECTION_ARR = [
 					]
 
 var coords : Vector3i
-@export var biome : String = "grassland"
+@export var biome : String = "base"
 var improvement : Node2D = null
 
 @export var stats : Dictionary = {

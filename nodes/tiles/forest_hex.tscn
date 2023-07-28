@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://f6butuymunsh"]
+
+[ext_resource type="PackedScene" uid="uid://tifeuibhp472" path="res://nodes/core/hex.tscn" id="1_ttlj0"]
+[ext_resource type="Script" path="res://nodes/tiles/forest_hex.gd" id="2_c5iuk"]
+
+[node name="ForestHex" instance=ExtResource("1_ttlj0")]
+script = ExtResource("2_c5iuk")
+biome = "forest"
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.282353, 0.384314, 0.0627451, 1)

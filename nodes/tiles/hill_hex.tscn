@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://drnvd5s02xpbd"]
+
+[ext_resource type="PackedScene" uid="uid://tifeuibhp472" path="res://nodes/core/hex.tscn" id="1_671a3"]
+[ext_resource type="Script" path="res://nodes/tiles/hill_hex.gd" id="2_wsrrh"]
+
+[node name="HillHex" instance=ExtResource("1_671a3")]
+script = ExtResource("2_wsrrh")
+biome = "hill"
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0.54902, 0.407843, 0.0941176, 1)
