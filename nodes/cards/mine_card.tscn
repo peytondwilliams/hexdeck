@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpocq28k02avg"]
+
+[ext_resource type="PackedScene" uid="uid://c43ld7bem4vbq" path="res://nodes/core/card.tscn" id="1_07dmn"]
+[ext_resource type="Texture2D" uid="uid://c216i6lcvu1lv" path="res://assets/visual/mystics_rpg_icon_pack/Tool_0.png" id="2_dxfct"]
+[ext_resource type="Script" path="res://nodes/cards/mine_card.gd" id="2_mms3k"]
+
+[node name="MineCard" instance=ExtResource("1_07dmn")]
+script = ExtResource("2_mms3k")
+cost = null
+
+[node name="Sprite2D2" parent="." index="1"]
+texture = ExtResource("2_dxfct")
+
+[node name="Name" parent="Control" index="0"]
+text = "Mine"
+
+[node name="Cost" parent="Control" index="1"]
+text = "Cost: 1 Food, 1 Labor"
+
+[node name="Placement" parent="Control" index="2"]
+text = "Requires: Hill"
+
+[node name="BaseStat" parent="Control" index="3"]
+text = "Material: +2
+"
+
+[node name="Effect" parent="Control" index="4"]
+text = "+1 material for each adjacent hill"

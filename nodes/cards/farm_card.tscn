@@ -5,3 +5,10 @@
 
 [node name="farm_card" instance=ExtResource("1_gpv0x")]
 script = ExtResource("2_7d4yy")
+
+[node name="BaseStat" parent="Control" index="3"]
+text = "Food: +3
+"
+
+[node name="Effect" parent="Control" index="4"]
+text = "+1 food for each adjacent farm"

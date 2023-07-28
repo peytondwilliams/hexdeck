@@ -2,6 +2,7 @@ extends Node2D
 
 
 @onready var farm_card = preload("res://nodes/cards/farm_card.tscn")
+@onready var mine_card = preload("res://nodes/cards/mine_card.tscn")
 
 @onready var gb = Global
 
@@ -32,7 +33,7 @@ func draw_shop():
 	organize_hand()
 	
 func random_card():
-	var card = farm_card.instantiate() #TODO choose valid card for shop
+	var card = mine_card.instantiate() #TODO choose valid card for shop
 	cards.append(card)
 	add_child(card)
 	card.click.connect(_on_card_click)
@@ -42,5 +43,8 @@ func random_card():
 	
 func _on_card_click(card):
 	gb.deck.append(card)
+	card.click.disconnect(_on_card_click)
+	remove_child(card)
+
 	visible = false
 	# close shop ui

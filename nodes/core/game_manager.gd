@@ -52,11 +52,10 @@ func _physics_process(delta):
 
 func place_improv():
 	var place_loc = gb.generate_hex_key(gb.real_to_cube_coords(get_global_mouse_position()))
-	if gb.grid.has(place_loc) and gb.grid[place_loc].improvement == null:
-		if hold_improv.is_valid_coords(place_loc):
-			remove_child(hold_improv)
-			gb.grid[place_loc].add_improv(hold_improv) 
-			card_hand.play_card(hold_card)
+	if gb.grid.has(place_loc) and gb.grid[place_loc].improvement == null and hold_improv.is_valid_coords(place_loc):
+		remove_child(hold_improv)
+		gb.grid[place_loc].add_improv(hold_improv) 
+		card_hand.play_card(hold_card)
 	else:
 		hold_improv.queue_free()
 
@@ -65,7 +64,6 @@ func calc_turn():
 	var stats = $HexGrid.calculate()
 	
 	gb.resources_pt = stats
-	print(stats)
 	
 	for key in gb.resources.keys():
 		#gb.resources[key] += gb.resources_pt[key]

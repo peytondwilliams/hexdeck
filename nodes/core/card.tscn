@@ -37,33 +37,43 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Farm"
 horizontal_alignment = 1
 
+[node name="Cost" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 137.0
+offset_right = 102.0
+offset_bottom = 157.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Cost: 1 Labor"
+
+[node name="Placement" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = 152.0
+offset_right = 103.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Requires: Grassland"
+
 [node name="BaseStat" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = -15.0
-offset_top = 139.0
+offset_top = 170.0
 offset_right = 87.0
-offset_bottom = 159.0
+offset_bottom = 190.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Food: +2
 "
 
-[node name="Placement" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = -15.0
-offset_top = 154.0
-offset_right = 101.0
-offset_bottom = 174.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-text = "Requires: Grassland"
-
 [node name="Effect" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = -16.0
-offset_top = 176.0
-offset_right = 140.0
-offset_bottom = 274.0
+offset_left = -15.0
+offset_top = 186.0
+offset_right = 141.0
+offset_bottom = 284.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "+0.25 food for each adjacent farm"

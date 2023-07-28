@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://kqda8oooqd1m"]
+
+[ext_resource type="PackedScene" uid="uid://wtmtv56qn6m5" path="res://nodes/core/improvement.tscn" id="1_vp8e3"]
+[ext_resource type="Script" path="res://nodes/improvements/mine_improv.gd" id="2_v4mqv"]
+[ext_resource type="Texture2D" uid="uid://c216i6lcvu1lv" path="res://assets/visual/mystics_rpg_icon_pack/Tool_0.png" id="3_idsa7"]
+
+[node name="MineImprov" instance=ExtResource("1_vp8e3")]
+script = ExtResource("2_v4mqv")
+stats = {
+"food": 0,
+"gold": 0,
+"labor": 0,
+"material": 2,
+"science": 0
+}
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_idsa7")

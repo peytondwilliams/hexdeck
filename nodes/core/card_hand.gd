@@ -5,6 +5,7 @@ signal card_click(card)
 @onready var gb = Global
 
 @onready var farm_card = preload("res://nodes/cards/farm_card.tscn")
+@onready var mine_card = preload("res://nodes/cards/mine_card.tscn")
 
 var cards : Array = []
 var draw_pile : Array = []
@@ -13,7 +14,7 @@ var discard_pile : Array = []
 func _ready():
 	Global.deck.append(farm_card.instantiate())
 	Global.deck.append(farm_card.instantiate())
-	Global.deck.append(farm_card.instantiate())
+	Global.deck.append(mine_card.instantiate())
 	
 	draw_hand()
 
@@ -62,6 +63,7 @@ func draw_hand():
 	
 func draw_card():
 	var card = draw_pile.pop_back()
+	print(card)
 	cards.append(card)
 	add_child(card)
 	card.click.connect(_on_card_click)
