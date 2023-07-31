@@ -6,6 +6,7 @@ signal card_click(card)
 
 @onready var farm_card = preload("res://nodes/cards/farm_card.tscn")
 @onready var mine_card = preload("res://nodes/cards/mine_card.tscn")
+@onready var animal_card = preload("res://nodes/cards/animal_card.tscn")
 
 var cards : Array = []
 var draw_pile : Array = []
@@ -13,7 +14,7 @@ var discard_pile : Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.deck.append(farm_card.instantiate())
-	Global.deck.append(farm_card.instantiate())
+	Global.deck.append(animal_card.instantiate())
 	Global.deck.append(mine_card.instantiate())
 	
 	draw_hand()

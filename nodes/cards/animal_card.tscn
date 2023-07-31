@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8dpbpcgivumx"]
+
+[ext_resource type="PackedScene" uid="uid://c43ld7bem4vbq" path="res://nodes/core/card.tscn" id="1_o3m33"]
+[ext_resource type="Script" path="res://nodes/cards/animal_card.gd" id="2_63yv7"]
+[ext_resource type="Texture2D" uid="uid://ck37s4pcbobgj" path="res://assets/visual/mystics_rpg_icon_pack/Staff_6.png" id="2_ai68f"]
+
+[node name="AnimalCard" instance=ExtResource("1_o3m33")]
+script = ExtResource("2_63yv7")
+
+[node name="Sprite2D2" parent="." index="1"]
+texture = ExtResource("2_ai68f")
+
+[node name="Name" parent="Control" index="0"]
+text = "Animal"
+
+[node name="Placement" parent="Control" index="2"]
+text = "Requires: Grass"
+
+[node name="Effect" parent="Control" index="4"]
+text = "+3 food if no adjacent mines"

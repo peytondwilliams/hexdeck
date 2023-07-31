@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://y2vo8m261mt8"]
+
+[ext_resource type="PackedScene" uid="uid://wtmtv56qn6m5" path="res://nodes/core/improvement.tscn" id="1_1gcsm"]
+[ext_resource type="Script" path="res://nodes/improvements/animal_improv.gd" id="2_hhk5y"]
+[ext_resource type="Texture2D" uid="uid://ck37s4pcbobgj" path="res://assets/visual/mystics_rpg_icon_pack/Staff_6.png" id="3_5a37n"]
+
+[node name="AnimalImprov" instance=ExtResource("1_1gcsm")]
+script = ExtResource("2_hhk5y")
+stats = {
+"food": 3,
+"gold": 0,
+"labor": 0,
+"material": 0,
+"science": 0
+}
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_5a37n")

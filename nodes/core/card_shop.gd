@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var farm_card = preload("res://nodes/cards/farm_card.tscn")
 @onready var mine_card = preload("res://nodes/cards/mine_card.tscn")
+@onready var animal_card = preload("res://nodes/cards/animal_card.tscn")
 
 @onready var gb = Global
 
